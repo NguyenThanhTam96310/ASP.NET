@@ -6,22 +6,22 @@ using System.Web.Mvc;
 
 namespace nguyenthanhtam_2122110440.Controllers
 {
-    public class ProductController : Controller
+    public class ProfileController : Controller
     {
-        // GET: Product
-        public ActionResult Index()
+        // GET: Profile
+        public ActionResult Main()
         {
             return View();
         }
-        public ActionResult Detail()
+        public ActionResult Orders()
         {
             return View();
         }
-        public ActionResult AllProduct()
+        public ActionResult Seller()
         {
             return View();
         }
-        public ActionResult AllProductList()
+        public ActionResult Wishlist()
         {
             return View();
         }

@@ -431,7 +431,6 @@
                         </div>
                     </form>
                 </div>
-
             </div> <!-- col // -->
         </div> <!-- row // -->
     </section>
@@ -449,7 +448,7 @@
                 <div class="card card-sm card-product-grid">
                     <a href="#" class="img-wrap"> <img src="~/Content/images/items/1.jpg"> </a>
                     <figcaption class="info-wrap">
-                        <a href="@Url.Action("Detail", "Product")" class="title"> Link Just another product name</a>
+                        @Html.ActionLink("Tên sản phẩm", "Detail", "Product", new { }, null)
                         <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
                     </figcaption>
                 </div>

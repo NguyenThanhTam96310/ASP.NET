@@ -38,7 +38,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-2 col-lg-3 col-md-12">
-                        <a href="http://bootstrap-ecommerce.com" class="brand-wrap">
+                        <a href="@Url.Action("index", "Home")" class="brand-wrap">
                             <img class="logo" src="~/Content/images/logo.png">
                         </a> <!-- brand-wrap.// -->
                     </div>
@@ -64,7 +64,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="widgets-wrap float-md-right">
                             <div class="widget-header mr-3">
-                                <a href="#" class="widget-view">
+                                <a href="@Url.Action("Index","Login")" class="widget-view">
                                     <div class="icon-area">
                                         <i class="fa fa-user"></i>
                                         <span class="notify">3</span>
@@ -121,23 +121,23 @@
                                         <a href="page-index-1.html">Home page 1</a>
                                         <a href="page-index-2.html">Home page 2</a>
                                         <a href="@Url.Action("AllCategory","Category")">All category</a>
-                                        <a href="page-listing-large.html">Listing list</a>
-                                        <a href="page-listing-grid.html">Listing grid</a>
-                                        <a href="page-shopping-cart.html">Shopping cart</a>
-                                        <a href="page-detail-product.html">Product detail</a>
-                                        <a href="page-content.html">Page content</a>
-                                        <a href="page-user-login.html">Page login</a>
-                                        <a href="page-user-register.html">Page register</a>
+                                        <a href="@Url.Action("AllProductList","Product")">Listing list</a>
+                                        <a href="@Url.Action("AllProduct","Product")">Listing grid</a>
+                                        <a href="@Url.Action("Index","Cart")">Shopping cart</a>
+                                        <a href="@Url.Action("Detail","Product")">Product detail</a>
+                                        <a href="@Url.Action("Index","Page")">Page content</a>
+                                        <a href="@Url.Action("Index","Login")">Page login</a>
+                                        <a href="@Url.Action("Index","Register")">Page register</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="page-profile-main.html">Profile main</a>
-                                        <a href="page-profile-orders.html">Profile orders</a>
-                                        <a href="page-profile-seller.html">Profile seller</a>
-                                        <a href="page-profile-wishlist.html">Profile wishlist</a>
-                                        <a href="page-profile-setting.html">Profile setting</a>
-                                        <a href="page-profile-address.html">Profile address</a>
-                                        <a href="rtl-page-index-1.html">RTL home page</a>
-                                        <a href="page-components.html" target="_blank">More components</a>
+                                        <a href="@Url.Action("Main","Profile")">Profile main</a>
+                                        <a href="@Url.Action("Orders","Profile")">Profile orders</a>
+                                        <a href="@Url.Action("Seller","Profile")">Profile seller</a>
+                                        <a href="@Url.Action("Wishlist","Profile")">Profile wishlist</a>
+                                        <a href="@Url.Action("Main","Profile")">Profile setting</a>
+                                        <a href="@Url.Action("Main","Profile")">Profile address</a>
+                                        <a href="@Url.Action("Main","Profile")">RTL home page</a>
+                                        <a href="@Url.Action("Main","Profile")" target="_blank">More components</a>
                                     </div>
                                 </nav> <!--  row end .// -->
                             </div> <!--  dropdown-menu dropdown-large end.// -->
