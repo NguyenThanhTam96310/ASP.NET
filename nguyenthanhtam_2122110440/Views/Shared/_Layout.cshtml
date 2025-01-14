@@ -63,24 +63,39 @@
                     </div> <!-- col.// -->
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="widgets-wrap float-md-right">
-                            <div class="widget-header mr-3">
-                                <a href="@Url.Action("Index","Login")" class="widget-view">
-                                    <div class="icon-area">
-                                        <i class="fa fa-user"></i>
-                                        <span class="notify">3</span>
-                                    </div>
-                                    <small class="text"> My profile </small>
-                                </a>
-                            </div>
-                            <div class="widget-header mr-3">
-                                <a href="#" class="widget-view">
-                                    <div class="icon-area">
-                                        <i class="fa fa-comment-dots"></i>
-                                        <span class="notify">1</span>
-                                    </div>
-                                    <small class="text"> Message </small>
-                                </a>
-                            </div>
+                            @if (Session["idUser"] != null)
+                            {
+                                <div class="widget-header mr-3">
+                                    <a href="#" class="widget-view">
+                                        <div class="icon-area">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <small class="text">@Session["FullName"] </small>
+                                    </a>
+                                </div>
+                                <div class="widget-header mr-3">
+                                    <a href="~/User/Logout" class="widget-view">
+                                        <div class="icon-area">
+                                            <i class="fa fa-sign-out-alt"></i>
+                                        </div>
+                                        <small class="text">Logout</small>
+                                    </a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="widget-header mr-3">
+                                    <a href="~/User/Login" class="widget-view">
+                                        <div class="icon-area">
+                                            <i class="fa fa-user"></i>
+                                            <span class="notify">3</span>
+                                        </div>
+                                        <small class="text">Login</small>
+                                    </a>
+                                </div>
+                            }
+
+                            
                             <div class="widget-header mr-3">
                                 <a href="#" class="widget-view">
                                     <div class="icon-area">
@@ -118,16 +133,13 @@
                             <div class="dropdown-menu dropdown-large">
                                 <nav class="row">
                                     <div class="col-6">
-                                        <a href="page-index-1.html">Home page 1</a>
-                                        <a href="page-index-2.html">Home page 2</a>
+                                       
                                         <a href="@Url.Action("AllCategory","Category")">All category</a>
-                                        <a href="@Url.Action("AllProductList","Product")">Listing list</a>
                                         <a href="@Url.Action("AllProduct","Product")">Listing grid</a>
                                         <a href="@Url.Action("Index","Cart")">Shopping cart</a>
-                                        <a href="@Url.Action("Detail","Product")">Product detail</a>
                                         <a href="@Url.Action("Index","Page")">Page content</a>
-                                        <a href="@Url.Action("Index","Login")">Page login</a>
-                                        <a href="@Url.Action("Index","Register")">Page register</a>
+                                        <a href="@Url.Action("Login","User")">Page login</a                                                                                                                                                                                                                                                                           >
+                                        <a href="@Url.Action("Register","User")">Page register</a>
                                     </div>
                                     <div class="col-6">
                                         <a href="@Url.Action("Main","Profile")">Profile main</a>
@@ -265,7 +277,7 @@
     </footer>
     <!-- ========================= FOOTER END // ========================= -->
 
-
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
 
 </body>
 </html>

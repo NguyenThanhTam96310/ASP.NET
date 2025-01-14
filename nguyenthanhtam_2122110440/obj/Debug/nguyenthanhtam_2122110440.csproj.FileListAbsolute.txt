@@ -77,3 +77,7 @@ D:\Nguyenthanhtam\TTNT\nguyenthanhtam_2122110440\nguyenthanhtam_2122110440\obj\D
 D:\Nguyenthanhtam\TTNT\nguyenthanhtam_2122110440\nguyenthanhtam_2122110440\obj\Debug\nguyenthanhtam_2122110440.csproj.CopyComplete
 D:\Nguyenthanhtam\TTNT\nguyenthanhtam_2122110440\nguyenthanhtam_2122110440\obj\Debug\nguyenthanhtam_2122110440.dll
 D:\Nguyenthanhtam\TTNT\nguyenthanhtam_2122110440\nguyenthanhtam_2122110440\obj\Debug\nguyenthanhtam_2122110440.pdb
+D:\Nguyenthanhtam\TTNT\nguyenthanhtam_2122110440\nguyenthanhtam_2122110440\bin\EntityFramework.dll
+D:\Nguyenthanhtam\TTNT\nguyenthanhtam_2122110440\nguyenthanhtam_2122110440\bin\EntityFramework.SqlServer.dll
+D:\Nguyenthanhtam\TTNT\nguyenthanhtam_2122110440\nguyenthanhtam_2122110440\bin\EntityFramework.xml
+D:\Nguyenthanhtam\TTNT\nguyenthanhtam_2122110440\nguyenthanhtam_2122110440\bin\EntityFramework.SqlServer.xml
