@@ -48,5 +48,10 @@ namespace nguyenthanhtam_2122110440
             public int Id { get; set; }
             public string Name { get; set; }
         }
+        public class Show
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+        }
     }
 }

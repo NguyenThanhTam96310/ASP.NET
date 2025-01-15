@@ -17,7 +17,7 @@ namespace nguyenthanhtam_2122110440.Controllers
             HomeModels objHomeModels=new HomeModels();
 
             objHomeModels .ListCategory= objEcommerce_MVC_2Entities.Category.ToList();
-            objHomeModels .ListProduct= objEcommerce_MVC_2Entities.Product.ToList();
+            objHomeModels .ListProduct=objEcommerce_MVC_2Entities.Product.ToList();    
             return View(objHomeModels);
         }
         

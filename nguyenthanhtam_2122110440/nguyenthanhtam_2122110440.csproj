@@ -129,8 +129,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BrandAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserAdminController.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Context\Brand.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
@@ -172,9 +175,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BrandMasterData.cs" />
+    <Compile Include="Models\CategoryAdminMasterData.cs" />
     <Compile Include="Models\HomeModels.cs" />
     <Compile Include="Models\PartialMetaData.cs" />
     <Compile Include="Models\ProductMasterData.cs" />
+    <Compile Include="Models\UserMasterData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2450,6 +2456,21 @@
     <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Scripts\ckeditor\SECURITY.md" />
     <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="Areas\Admin\Views\CategoryAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CategoryAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CategoryAdmin\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\CategoryAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CategoryAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BrandAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BrandAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\BrandAdmin\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\BrandAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\BrandAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
@@ -2800,6 +2821,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Content\images\brand\" />
     <Folder Include="Content\images\cate\" />
     <Folder Include="Content\images\product\" />
   </ItemGroup>

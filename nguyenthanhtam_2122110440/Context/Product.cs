@@ -33,9 +33,8 @@ namespace nguyenthanhtam_2122110440.Context
         public System.DateTime CreatedDate { get; set; }
         public string UpdateBy { get; set; }
         public System.DateTime UpdateDate { get; set; }
-
-        [NotMapped]
-        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
+        //[NotMapped]
+        //public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
 
 }

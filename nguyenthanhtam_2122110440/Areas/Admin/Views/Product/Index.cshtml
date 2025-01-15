@@ -7,7 +7,7 @@
 <h2>Quản lý sản phẩm</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm sản phẩm mới", "Create")
 </p>
 <table class="table">
     <tr>
@@ -63,7 +63,8 @@
             @Html.DisplayFor(modelItem => item.Slug)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CategoryId)
+            @Html.DisplayFor(modelItem => item.CategoryId )
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FullDescription)
