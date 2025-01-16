@@ -12,12 +12,11 @@ namespace nguyenthanhtam_2122110440.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class OrderDetail
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> UserId { get; set; }
-        public Nullable<int> Status { get; set; }
-        public System.DateTime CreatedDate { get; set; }
+        public Nullable<int> OrderId { get; set; }
+        public Nullable<int> ProductId { get; set; }
+        public Nullable<int> Quantity { get; set; }
     }
 }

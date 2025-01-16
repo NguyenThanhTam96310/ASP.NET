@@ -1,5 +1,5 @@
 ﻿using nguyenthanhtam_2122110440.Context;
-
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,11 +16,35 @@ namespace nguyenthanhtam_2122110440.Areas.Admin.Controllers
     {
         Ecommerce_MVC_2Entities objEcommerce_MVC_2Entities = new Ecommerce_MVC_2Entities();
         // GET: Admin/Product
-        public ActionResult Index()
+        public ActionResult Index(string SearchString,string CurrentFilter,int? page)
         {
-            var listProduct = objEcommerce_MVC_2Entities.Product.ToList();
-            return View(listProduct);
+           var listProduct =new List<Product>();
+
+            if (SearchString!=null)
+            {
+                page = 1;
+            }
+            else
+            {
+                SearchString = CurrentFilter;
+            }
+            if (string.IsNullOrEmpty(SearchString))
+            {
+                listProduct = objEcommerce_MVC_2Entities.Product.ToList();
+            }
+            else
+            {
+                listProduct = objEcommerce_MVC_2Entities.Product
+                                .Where(n => n.Name.Contains(SearchString))
+                                .ToList();
+            }
+            ViewBag.CurrentFilter=SearchString;
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            listProduct=listProduct.OrderByDescending(n=>n.Id).ToList();
+            return View(listProduct.ToPagedList(pageNumber,pageSize));
         }
+
         [HttpGet]
         public ActionResult Create()
         {

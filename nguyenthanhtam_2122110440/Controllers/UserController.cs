@@ -37,7 +37,7 @@ namespace nguyenthanhtam_2122110440.Controllers
                 }
                 else
                 {
-                    ViewBag.error = "Email already exists";
+                    ViewBag.error = "Email đẫ tồn tại";
                     return View();
                 }
 
@@ -89,7 +89,7 @@ namespace nguyenthanhtam_2122110440.Controllers
                 }
                 else
                 {
-                    ViewBag.error = "Login failed";
+                    ViewBag.error = "Đăng nhập thất bại";
                     return RedirectToAction("Login");
                 }
             }

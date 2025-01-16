@@ -28,6 +28,7 @@ namespace nguyenthanhtam_2122110440.Context
         public virtual DbSet<Brand> Brand { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetail { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
