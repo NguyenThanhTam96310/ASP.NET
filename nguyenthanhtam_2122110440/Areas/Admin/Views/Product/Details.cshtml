@@ -22,7 +22,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Avatar)
+            <img src="@Url.Content("~/Content/images/product/" + Model.Avatar)" alt="@Model.Name" width="100" height="100" />
+
         </dd>
 
         <dt>

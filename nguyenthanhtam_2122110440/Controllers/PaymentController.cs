@@ -44,6 +44,8 @@ namespace nguyenthanhtam_2122110440.Controllers
                 }
                 objEcommerce_MVC_2Entities.OrderDetail.AddRange(lstOrderDetail);
                 objEcommerce_MVC_2Entities.SaveChanges();
+                Session["cart"] = null;
+                Session["count"] = 0;
             }
             return View();
         }

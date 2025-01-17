@@ -138,6 +138,7 @@
     <Compile Include="Areas\Admin\Controllers\BrandAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserAdminController.cs" />
     <Compile Include="Common.cs" />
@@ -189,6 +190,8 @@
     <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\CategoryAdminMasterData.cs" />
     <Compile Include="Models\HomeModels.cs" />
+    <Compile Include="Models\UserOrderModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\PartialMetaData.cs" />
     <Compile Include="Models\ProductMasterData.cs" />
     <Compile Include="Models\UserMasterData.cs" />
@@ -2483,6 +2486,8 @@
     <Content Include="Context\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Details.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />

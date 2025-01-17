@@ -1,4 +1,4 @@
-﻿
+﻿@model nguyenthanhtam_2122110440.Context.User
 @{
     ViewBag.Title = "Main";
 }
@@ -37,8 +37,8 @@
                                 <img class="rounded-circle img-sm border" src="~/Content/images/avatars/avatar3.jpg">
                             </div>
                             <div class="text">
-                                <strong> Mr. Jackson Someone </strong> <br>
-                                <p class="mb-2"> myloginname@gmail.com  </p>
+                                <strong> @Session["FullName"] </strong> <br>
+                                <p class="mb-2"> @Model.Email </p>
                                 <a href="#" class="btn btn-light btn-sm">Edit</a>
                             </div>
                         </figure>

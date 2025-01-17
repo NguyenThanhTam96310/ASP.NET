@@ -1,4 +1,20 @@
-﻿<!DOCTYPE HTML>
+﻿<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '@Url.Action("GetCategories", "Home")',
+            type: 'GET',
+            success: function (data) {
+                var categoryList = '';
+                $.each(data, function (index, category) {
+                    categoryList += '<a href="#">' + category.Name + '</a>';
+                });
+                $('#categoryDropdown').html(categoryList);
+            }
+        });
+    });
+</script>
+
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -40,24 +56,25 @@
                     <div class="col-xl-2 col-lg-3 col-md-12">
                         <a href="@Url.Action("index", "Home")" class="brand-wrap">
                             <img class="logo" src="~/Content/images/logo.png">
-                        </a> <!-- brand-wrap.// -->
+                        </a>
                     </div>
                     <div class="col-xl-6 col-lg-5 col-md-6">
-                        <form action="#" class="search-header">
+                        <form action="@Url.Action("AllProduct", "Product")" method="post" class="search-header">
                             <div class="input-group w-100">
+
                                 <select class="custom-select border-right" name="category_name">
                                     <option value="">All type</option>
                                     <option value="codex">Special</option>
                                     <option value="comments">Only best</option>
                                     <option value="content">Latest</option>
                                 </select>
-                                <input type="text" class="form-control" placeholder="Search">
-
+                                <input type="text" class="form-control" placeholder="Nhập sản phẩm cần tìm" name="searchTerm" />
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit">
-                                        <i class="fa fa-search"></i> Search
+                                        <i class="fa fa-search"></i> Tìm kiếm
                                     </button>
                                 </div>
+
                             </div>
                         </form> <!-- search-wrap .end// -->
                     </div> <!-- col.// -->
@@ -78,9 +95,26 @@
                                         <div class="icon-area">
                                             <i class="fa fa-sign-out-alt"></i>
                                         </div>
-                                        <small class="text">Logout</small>
+                                        <small class="text">Đăng xuất</small>
                                     </a>
                                 </div>
+                                <div class="widget-header mr-3">
+                                    <a href="/Admin/Dashboard/Index" class="widget-view">
+                                        <div class="icon-area">
+                                            <i class="fa fa-cogs"></i>
+                                        </div>
+                                        <small class="text">Quản trị</small>
+                                    </a>
+                                </div>
+                                <div class="widget-header mr-3">
+                                    <a href="/Profile/Orders" class="widget-view">
+                                        <div class="icon-area">
+                                            <i class="fa fa-store"></i>
+                                        </div>
+                                        <small class="text">Đơn hàng</small>
+                                    </a>
+                                </div>
+
                             }
                             else
                             {
@@ -88,38 +122,26 @@
                                     <a href="~/User/Login" class="widget-view">
                                         <div class="icon-area">
                                             <i class="fa fa-user"></i>
-                                            <span class="notify">3</span>
                                         </div>
-                                        <small class="text">Login</small>
+                                        <small class="text">Đăng nhập</small>
                                     </a>
                                 </div>
                             }
 
-
-                            <div class="widget-header mr-3">
-                                <a href="#" class="widget-view">
-                                    <div class="icon-area">
-                                        <i class="fa fa-store"></i>
-                                    </div>
-                                    <small class="text"> Orders </small>
-                                </a>
-                            </div>
                             <div class="widget-header">
                                 <a href="@Url.Action("Index","Cart")" class="widget-view">
                                     <div class="icon-area">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span class="notify" id="CartCount">@Session["count"]</span>
                                     </div>
-                                    <small class="text"> Cart </small>
+                                    <small class="text">Giỏ hàng</small>
                                 </a>
                             </div>
-                        </div> <!-- widgets-wrap.// -->
-                    </div> <!-- col.// -->
-                </div> <!-- row.// -->
-            </div> <!-- container.// -->
-        </section> <!-- header-main .// -->
-
-
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <nav class="navbar navbar-main navbar-expand-lg border-bottom">
             <div class="container">
@@ -129,97 +151,95 @@
 
                 <div class="collapse navbar-collapse" id="main_nav">
                     <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-bars text-muted mr-2"></i> Demo pages </a>
+                        @*<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-bars text-muted mr-2"></i> Tất cả danh mục
+                            </a>
+                            <div class="dropdown-menu dropdown-large">
+                                <nav class="row">
+                                   
+
+                                    <div class="col-6">
+                                        <a href="@Url.Action("AllCategory", "Category")">Tất cả danh mục</a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </li>*@
+
+                        @*<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-bars text-muted mr-2"></i> Thông tin </a>
                             <div class="dropdown-menu dropdown-large">
                                 <nav class="row">
                                     <div class="col-6">
-
-                                        <a href="@Url.Action("AllCategory","Category")">All category</a>
-                                        <a href="@Url.Action("AllProduct","Product")">Listing grid</a>
-                                        <a href="@Url.Action("Index","Cart")">Shopping cart</a>
-                                        <a href="@Url.Action("Index","Page")">Page content</a>
-                                        <a href="@Url.Action("Login","User")">Page login</a>
-                                        <a href="@Url.Action("Register","User")">Page register</a>
+                                        <a href="@Url.Action("Main","Profile")">Hồ sơ chính</a>
+                                        <a href="@Url.Action("Orders","Profile")">Đơn hàng</a>
+                                        <a href="@Url.Action("Seller","Profile")">Người bán</a>
+                                        <a href="@Url.Action("Wishlist","Profile")">Yêu thích</a>
+                                        <a href="@Url.Action("Main","Profile")">Cài đặt</a>
+                                        <a href="@Url.Action("Main","Profile")">Địa chỉ</a>
                                     </div>
-                                    <div class="col-6">
-                                        <a href="@Url.Action("Main","Profile")">Profile main</a>
-                                        <a href="@Url.Action("Orders","Profile")">Profile orders</a>
-                                        <a href="@Url.Action("Seller","Profile")">Profile seller</a>
-                                        <a href="@Url.Action("Wishlist","Profile")">Profile wishlist</a>
-                                        <a href="@Url.Action("Main","Profile")">Profile setting</a>
-                                        <a href="@Url.Action("Main","Profile")">Profile address</a>
-                                        <a href="@Url.Action("Main","Profile")">RTL home page</a>
-                                        <a href="@Url.Action("Main","Profile")" target="_blank">More components</a>
-                                    </div>
-                                </nav> <!--  row end .// -->
-                            </div> <!--  dropdown-menu dropdown-large end.// -->
+                                </nav>
+                            </div>
+                        </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("AllProduct","Product")">Tất cả sản phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Ready to ship</a>
+                            <a class="nav-link" href="#">Hội chợ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Trade shows</a>
+                            <a class="nav-link" href="#">Dịch vụ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sell with us</a>
+                            <a class="nav-link" href="#">Hợp tác</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-md-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Get the app</a>
+                            <a class="nav-link" href="#">Tải ứng dụng</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="http://example.com" data-toggle="dropdown">English</a>
+                            <a class="nav-link dropdown-toggle" href="http://example.com" data-toggle="dropdown">Tiếng Việt</a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Russian</a>
-                                <a class="dropdown-item" href="#">French</a>
-                                <a class="dropdown-item" href="#">Spanish</a>
-                                <a class="dropdown-item" href="#">Chinese</a>
+                                <a class="dropdown-item" href="#">Tiếng Anh</a>
+                                <a class="dropdown-item" href="#">Tiếng Pháp</a>
+                                <a class="dropdown-item" href="#">Tiếng Trung</a>
                             </div>
                         </li>
                     </ul>
-                </div> <!-- collapse .// -->
-            </div> <!-- container .// -->
+                </div>
+            </div>
         </nav>
 
-    </header> <!-- section-header.// -->
+    </header>
 
     @RenderBody()
-    <!-- ========================= SECTION SUBSCRIBE  ========================= -->
+
     <section class="section-subscribe padding-y-lg">
         <div class="container">
-
-            <p class="pb-2 text-center text-white">Delivering the latest product trends and industry news straight to your inbox</p>
-
+            <p class="pb-2 text-center text-white">Nhận thông tin sản phẩm mới nhất và tin tức thị trường trực tiếp qua email của bạn</p>
             <div class="row justify-content-md-center">
                 <div class="col-lg-5 col-md-6">
                     <form class="form-row">
                         <div class="col-md-8 col-7">
-                            <input class="form-control border-0" placeholder="Your Email" type="email">
-                        </div> <!-- col.// -->
+                            <input class="form-control border-0" placeholder="Email của bạn" type="email">
+                        </div>
                         <div class="col-md-4 col-5">
-                            <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
-                        </div> <!-- col.// -->
+                            <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Đăng ký </button>
+                        </div>
                     </form>
-                    <small class="form-text text-white-50">We’ll never share your email address with a third-party. </small>
-                </div> <!-- col-md-6.// -->
+                    <small class="form-text text-white-50">Chúng tôi cam kết không chia sẻ email của bạn với bên thứ ba.</small>
+                </div>
             </div>
-
-
         </div>
     </section>
-    <!-- ========================= SECTION SUBSCRIBE END// ========================= -->
-    <!-- ========================= FOOTER ========================= -->
+
     <footer class="section-footer bg-secondary">
         <div class="container">
             <section class="footer-top padding-y-lg text-white">
                 <div class="row">
                     <aside class="col-md col-6">
-                        <h6 class="title">Brands</h6>
+                        <h6 class="title">Thương hiệu</h6>
                         <ul class="list-unstyled">
                             <li> <a href="#">Adidas</a></li>
                             <li> <a href="#">Puma</a></li>
@@ -228,36 +248,34 @@
                         </ul>
                     </aside>
                     <aside class="col-md col-6">
-                        <h6 class="title">Company</h6>
+                        <h6 class="title">Công ty</h6>
                         <ul class="list-unstyled">
-                            <li> <a href="#">About us</a></li>
-                            <li> <a href="#">Career</a></li>
-                            <li> <a href="#">Find a store</a></li>
-                            <li> <a href="#">Rules and terms</a></li>
-                            <li> <a href="#">Sitemap</a></li>
+                            <li> <a href="#">Về chúng tôi</a></li>
+                            <li> <a href="#">Tuyển dụng</a></li>
+                            <li> <a href="#">Cửa hàng</a></li>
+                            <li> <a href="#">Điều khoản</a></li>
                         </ul>
                     </aside>
                     <aside class="col-md col-6">
-                        <h6 class="title">Help</h6>
+                        <h6 class="title">Hỗ trợ</h6>
                         <ul class="list-unstyled">
-                            <li> <a href="#">Contact us</a></li>
-                            <li> <a href="#">Money refund</a></li>
-                            <li> <a href="#">Order status</a></li>
-                            <li> <a href="#">Shipping info</a></li>
-                            <li> <a href="#">Open dispute</a></li>
+                            <li> <a href="#">Liên hệ</a></li>
+                            <li> <a href="#">Hoàn tiền</a></li>
+                            <li> <a href="#">Tình trạng đơn hàng</a></li>
+                            <li> <a href="#">Thông tin giao hàng</a></li>
                         </ul>
                     </aside>
                     <aside class="col-md col-6">
-                        <h6 class="title">Account</h6>
+                        <h6 class="title">Tài khoản</h6>
                         <ul class="list-unstyled">
-                            <li> <a href="#"> User Login </a></li>
-                            <li> <a href="#"> User register </a></li>
-                            <li> <a href="#"> Account Setting </a></li>
-                            <li> <a href="#"> My Orders </a></li>
+                            <li> <a href="#">Đăng nhập</a></li>
+                            <li> <a href="#">Đăng ký</a></li>
+                            <li> <a href="#">Cài đặt tài khoản</a></li>
+                            <li> <a href="#">Đơn hàng của tôi</a></li>
                         </ul>
                     </aside>
                     <aside class="col-md">
-                        <h6 class="title">Social</h6>
+                        <h6 class="title">Mạng xã hội</h6>
                         <ul class="list-unstyled">
                             <li><a href="#"> <i class="fab fa-facebook"></i> Facebook </a></li>
                             <li><a href="#"> <i class="fab fa-twitter"></i> Twitter </a></li>
@@ -265,22 +283,17 @@
                             <li><a href="#"> <i class="fab fa-youtube"></i> Youtube </a></li>
                         </ul>
                     </aside>
-                </div> <!-- row.// -->
-            </section>	<!-- footer-top.// -->
-
-            <section class="footer-bottom text-center">
-
-                <p class="text-white">Privacy Policy - Terms of Use - User Information Legal Enquiry Guide</p>
-                <p class="text-muted"> &copy 2019 Company name, All rights reserved </p>
-                <br>
+                </div>
             </section>
-        </div><!-- //container -->
+            <section class="footer-bottom text-center">
+                <p class="text-white">Chính sách bảo mật - Điều khoản sử dụng - Hướng dẫn thông tin</p>
+                <p class="text-muted"> &copy 2025 Tên công ty, Bản quyền thuộc về công ty </p>
+            </section>
+        </div>
     </footer>
-    <!-- ========================= FOOTER END // ========================= -->
 
     <script src="~/Scripts/ckeditor/ckeditor.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-
 </body>
+
 </html>

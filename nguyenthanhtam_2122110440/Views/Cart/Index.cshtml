@@ -16,8 +16,6 @@
             model.Id = $("#productid").val();
             var price = parseFloat($(this).data("price")); 
             var quantity = parseInt($(this).data("quantity")); 
-
-           
             $.ajax({
                 type: "POST",
                 url: '@Url.Action("Remove", "Cart")',
@@ -38,6 +36,36 @@
                 }
             });
 
+            return false;
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#updateQuantity").click(function () {
+            var model = {};
+            //lấy id sản phẩm
+            model.Id = $("#productid").val();
+            // lấy số lượng đặt hàng
+         
+            model.Quantity = $("#ipQuantity").val();
+            var price = parseFloat($(this).data("price"));
+            debugger;
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("UpdateQuantity", "Cart")',
+                data:  JSON.stringify(model) ,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function () {
+                    alert("Cập nhật thành công!")
+
+                },
+                error: function () {
+                    alert("Lỗi trong khi cập nhật!");
+                    
+                }
+            });
             return false;
         });
     });
@@ -77,7 +105,7 @@
                                             </figure>
                                         </td>
                                         <td>
-                                            <input type="text" value="@item.Quantity" />
+                                            <input type="text" value="@item.Quantity" id="ipQuantity" />
                                         </td>
                                         <td>
                                             <div class="price-wrap">
@@ -87,9 +115,14 @@
                                         </td>
                                         <td class="text-right">
                                             <input type="hidden" value="@item.Product.Id" id="productid" />
-                                            <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
                                             <a href="" class="btn btn-light btn-round" id="removecart" data-price="@item.Product.Price"
                                                data-quantity="@item.Quantity"> Xóa</a>
+                                        </td>
+                                        <td class="text-right">
+                                            <input type="hidden" value="@item.Product.Id" id="productid" />
+                                            
+                                            <a href="" class="btn btn-light btn-round" id="updateQuantity" data-price="@item.Product.Price"
+                                               data-quantity="@item.Quantity"> Cập nhật</a>
                                         </td>
                                     </tr>
                                     total += item.Product.Price * item.Quantity;
